@@ -47,7 +47,6 @@ public class RepeatSubmitAspect extends BaseAspect{
         if (Objects.nonNull(jRepeat)) {
             // 获取参数
             Object[] args = joinPoint.getArgs();
-            // 进行一些参数的处理，比如获取订单号，操作人id等
             StringBuffer lockKeyBuffer = new StringBuffer();
             String key =getValueBySpEL(jRepeat.lockKey(), parameterNames, args,"RepeatSubmit").get(0);
             // 公平加锁，lockTime后锁自动释放
